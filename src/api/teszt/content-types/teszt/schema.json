@@ -1,0 +1,18 @@
+{
+  "kind": "collectionType",
+  "collectionName": "teszts",
+  "info": {
+    "singularName": "teszt",
+    "pluralName": "teszts",
+    "displayName": "Teszt"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "szoveg": {
+      "type": "string"
+    }
+  }
+}
