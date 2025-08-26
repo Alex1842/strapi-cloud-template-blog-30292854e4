@@ -44,9 +44,8 @@ export interface SharedSeo extends Struct.ComponentSchema {
     name: 'Seo';
   };
   attributes: {
-    metaDescription: Schema.Attribute.Text & Schema.Attribute.Required;
-    metaTitle: Schema.Attribute.String & Schema.Attribute.Required;
-    shareImage: Schema.Attribute.Media<'images'>;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    keywords: Schema.Attribute.Text;
   };
 }
 
@@ -62,6 +61,22 @@ export interface SharedSlider extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedTextEditor extends Struct.ComponentSchema {
+  collectionName: 'components_shared_text_editors';
+  info: {
+    displayName: 'Text editor';
+  };
+  attributes: {
+    text_field: Schema.Attribute.RichText &
+      Schema.Attribute.CustomField<
+        'plugin::ckeditor5.CKEditor',
+        {
+          preset: 'defaultMarkdown';
+        }
+      >;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -70,6 +85,7 @@ declare module '@strapi/strapi' {
       'shared.rich-text': SharedRichText;
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
+      'shared.text-editor': SharedTextEditor;
     }
   }
 }

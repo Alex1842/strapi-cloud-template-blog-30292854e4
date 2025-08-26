@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_shared_text_editors",
+  "info": {
+    "displayName": "Text editor"
+  },
+  "options": {},
+  "attributes": {
+    "text_field": {
+      "type": "customField",
+      "customField": "plugin::ckeditor5.CKEditor",
+      "options": {
+        "preset": "defaultMarkdown"
+      }
+    }
+  },
+  "config": {}
+}
