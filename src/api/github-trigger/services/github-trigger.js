@@ -1,7 +1,7 @@
-'use strict';
+    'use strict';
 
-/**
- * github-trigger service
- */
+    /**
+     * github-trigger service
+     */
 
-module.exports = () => ({});
+    module.exports = () => ({});
