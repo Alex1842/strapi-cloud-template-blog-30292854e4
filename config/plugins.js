@@ -1,6 +1,1 @@
-module.exports = ({ env }) => ({
-  'strapi-import-export': {
-    enabled: true,
-    config: { },
-  },
-});
+module.exports = () => ({});

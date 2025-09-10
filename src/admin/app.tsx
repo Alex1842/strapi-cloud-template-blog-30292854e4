@@ -140,5 +140,29 @@ export default {
       name: "DeployButton",
       Component: DeployButton,
     });
+
+    // --- Redirect logic ---
+    const CM_ROOT = "/admin/content-manager";
+    const TARGET =
+      "/admin/content-manager/collection-types/api::blog-post.blog-post";
+
+    if (location.pathname === CM_ROOT) {
+      location.replace(TARGET);
+    }
+
+    if (!(window as any).__cmRedirectBound) {
+      (window as any).__cmRedirectBound = true;
+      document.addEventListener("click", (e) => {
+        const a = (e.target as HTMLElement)?.closest?.("a");
+        if (!a) return;
+        const href = a.getAttribute("href");
+        if (href === CM_ROOT) {
+          e.preventDefault();
+          window.history.pushState({}, "", TARGET);
+          window.dispatchEvent(new PopStateEvent("popstate"));
+        }
+      });
+    }
   },
 };
+
