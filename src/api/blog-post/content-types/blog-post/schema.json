@@ -6,13 +6,13 @@
     "pluralName": "blog-posts",
     "displayName": "BlogPost"
   },
+  "options": {
+    "draftAndPublish": true
+  },
   "pluginOptions": {
     "i18n": {
       "localized": true
     }
-  },
-  "options": {
-    "draftAndPublish": true
   },
   "attributes": {
     "title": {
@@ -21,7 +21,23 @@
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true,
+      "default": "Page",
+      "enum": [
+        "Page",
+        "Event",
+        "Page & Event"
+      ]
     },
     "url": {
       "type": "string",
@@ -68,6 +84,16 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
+        }
+      },
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "type"
+            },
+            "Event"
+          ]
         }
       },
       "component": "shared.seo",

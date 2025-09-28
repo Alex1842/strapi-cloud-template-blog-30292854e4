@@ -10,7 +10,7 @@
   "attributes": {
     "description": {
       "type": "text",
-      "required": true
+      "required": false
     },
     "keywords": {
       "type": "text"
