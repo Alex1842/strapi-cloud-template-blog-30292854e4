@@ -77,6 +77,20 @@ export interface SharedTextEditor extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedVideoItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_video_items';
+  info: {
+    displayName: 'Video item';
+  };
+  options: {
+    title: '{{note}} - {{youtube_url}}';
+  };
+  attributes: {
+    note: Schema.Attribute.String;
+    youtube_url: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -86,6 +100,7 @@ declare module '@strapi/strapi' {
       'shared.seo': SharedSeo;
       'shared.slider': SharedSlider;
       'shared.text-editor': SharedTextEditor;
+      'shared.video-item': SharedVideoItem;
     }
   }
 }

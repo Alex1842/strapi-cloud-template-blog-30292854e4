@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_video_items",
+  "info": {
+    "displayName": "Video item"
+  },
+  "options": {
+    "title": "{{note}} - {{youtube_url}}"
+  },
+  "attributes": {
+    "note": {
+      "type": "string"
+    },
+    "youtube_url": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "config": {}
+}

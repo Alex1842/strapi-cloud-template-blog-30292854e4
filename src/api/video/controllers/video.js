@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- *  global controller
+ * video controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::global.global');
+module.exports = createCoreController('api::video.video');
