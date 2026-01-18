@@ -63,6 +63,14 @@
         "audios"
       ]
     },
+    "cover_shift_Y": {
+      "type": "integer",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      }
+    },
     "date": {
       "type": "date",
       "pluginOptions": {
@@ -84,16 +92,6 @@
       "pluginOptions": {
         "i18n": {
           "localized": true
-        }
-      },
-      "conditions": {
-        "visible": {
-          "!=": [
-            {
-              "var": "type"
-            },
-            "Event"
-          ]
         }
       },
       "component": "shared.seo",

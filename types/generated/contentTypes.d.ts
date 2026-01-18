@@ -535,6 +535,12 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
           localized: false;
         };
       }>;
+    cover_shift_Y: Schema.Attribute.Integer &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
