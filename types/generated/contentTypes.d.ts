@@ -519,7 +519,7 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
   };
   attributes: {
     article_content: Schema.Attribute.DynamicZone<
-      ['shared.media', 'shared.text-editor']
+      ['shared.media', 'shared.text-editor', 'shared.embedded-video']
     > &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

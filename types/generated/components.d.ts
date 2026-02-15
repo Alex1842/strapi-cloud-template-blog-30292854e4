@@ -1,5 +1,17 @@
 import type { Schema, Struct } from '@strapi/strapi';
 
+export interface SharedEmbeddedVideo extends Struct.ComponentSchema {
+  collectionName: 'components_shared_embedded_videos';
+  info: {
+    displayName: 'Embedded video';
+  };
+  attributes: {
+    type: Schema.Attribute.Enumeration<['Youtube', 'Facebook']> &
+      Schema.Attribute.Required;
+    video_id: Schema.Attribute.String & Schema.Attribute.Required;
+  };
+}
+
 export interface SharedMedia extends Struct.ComponentSchema {
   collectionName: 'components_shared_media';
   info: {
@@ -94,6 +106,7 @@ export interface SharedVideoItem extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'shared.embedded-video': SharedEmbeddedVideo;
       'shared.media': SharedMedia;
       'shared.quote': SharedQuote;
       'shared.rich-text': SharedRichText;

@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_embedded_videos",
+  "info": {
+    "displayName": "Embedded video"
+  },
+  "options": {},
+  "attributes": {
+    "video_id": {
+      "type": "string",
+      "required": true
+    },
+    "type": {
+      "type": "enumeration",
+      "required": true,
+      "enum": [
+        "Youtube",
+        "Facebook"
+      ]
+    }
+  },
+  "config": {}
+}
