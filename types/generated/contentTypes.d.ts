@@ -526,6 +526,13 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
           localized: true;
         };
       }>;
+    banner_position: Schema.Attribute.Enumeration<['top', 'center', 'bottom']> &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: false;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'center'>;
     cover: Schema.Attribute.Media<
       'images' | 'files' | 'videos' | 'audios',
       true

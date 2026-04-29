@@ -71,6 +71,30 @@
         }
       }
     },
+    "banner_position": {
+      "type": "enumeration",
+      "pluginOptions": {
+        "i18n": {
+          "localized": false
+        }
+      },
+      "conditions": {
+        "visible": {
+          "!=": [
+            {
+              "var": "type"
+            },
+            "Event"
+          ]
+        }
+      },
+      "default": "center",
+      "enum": [
+        "top",
+        "center",
+        "bottom"
+      ]
+    },
     "date": {
       "type": "date",
       "pluginOptions": {
