@@ -7,18 +7,25 @@ const DeployButton = () => {
   useEffect(() => {
     if (progress === null) return;
 
+    const duration = 210 + Math.random() * 30;
+    const increment = 100 / duration;
+
     let value = progress;
+
     const timer = setInterval(() => {
-      value += Math.random() * 2;
+      value += increment;
+
       if (value >= 100) {
         value = 100;
         clearInterval(timer);
         setDone(true);
+
         setTimeout(() => {
           setProgress(null);
           setDone(false);
         }, 5000);
       }
+
       setProgress(value);
     }, 1000);
 
@@ -163,7 +170,5 @@ export default {
         }
       });
     }
-    
   },
 };
-
