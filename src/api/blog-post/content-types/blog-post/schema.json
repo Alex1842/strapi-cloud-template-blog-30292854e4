@@ -133,6 +133,10 @@
         "shared.text-editor",
         "shared.embedded-video"
       ]
+    },
+    "custom_css": {
+      "type": "customField",
+      "customField": "global::css-editor"
     }
   }
 }

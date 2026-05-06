@@ -551,6 +551,8 @@ export interface ApiBlogPostBlogPost extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    custom_css: Schema.Attribute.Text &
+      Schema.Attribute.CustomField<'global::css-editor'>;
     date: Schema.Attribute.Date &
       Schema.Attribute.SetPluginOptions<{
         i18n: {

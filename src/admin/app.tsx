@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const DeployButton = () => {
   const [progress, setProgress] = useState<number | null>(null);
@@ -9,7 +9,6 @@ const DeployButton = () => {
 
     const duration = 210 + Math.random() * 30;
     const increment = 100 / duration;
-
     let value = progress;
 
     const timer = setInterval(() => {
@@ -34,6 +33,7 @@ const DeployButton = () => {
 
   const handleClick = async () => {
     setProgress(0);
+
     try {
       await fetch("/api/github-trigger", {
         method: "POST",
@@ -143,12 +143,27 @@ const DeployButton = () => {
 
 export default {
   register(app) {
+    app.customFields.register({
+      name: "css-editor",
+      type: "text",
+      intlLabel: {
+        id: "global.css-editor.label",
+        defaultMessage: "CSS Editor",
+      },
+      intlDescription: {
+        id: "global.css-editor.description",
+        defaultMessage: "CSS with syntax highlighting and validation",
+      },
+      components: {
+        Input: async () => import("./CssEditorInput/index.js"),
+      },
+    });
+
     app.getPlugin("content-manager").injectComponent("listView", "actions", {
       name: "DeployButton",
       Component: DeployButton,
     });
 
-    // --- Redirect logic ---
     const CM_ROOT = "/admin/content-manager";
     const TARGET =
       "/admin/content-manager/collection-types/api::blog-post.blog-post";
@@ -159,10 +174,13 @@ export default {
 
     if (!(window as any).__cmRedirectBound) {
       (window as any).__cmRedirectBound = true;
+
       document.addEventListener("click", (e) => {
         const a = (e.target as HTMLElement)?.closest?.("a");
         if (!a) return;
+
         const href = a.getAttribute("href");
+
         if (href === CM_ROOT) {
           e.preventDefault();
           window.history.pushState({}, "", TARGET);
